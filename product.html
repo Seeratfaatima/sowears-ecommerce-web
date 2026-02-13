@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | Sowears</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+    <header>
+        <section id="header">
+            <a href="#"><img src="sowearslogo.png" alt="" id="logo"></a>
+            <div id="nav_items">
+                <ul id="navbar">
+                    <li><a href="index1.html">Home</a></li>
+                    <li><a class="active" href="shop.html">Shop</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li id="lg-bag"><a href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span
+                                class="cart-count"></span></a></li>
+                    <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+                </ul>
+            </div>
+            <div id="mobile">
+                <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count"></span></a>
+                <i id="bar" class="fas fa-outdent"></i>
+            </div>
+        </section>
+    </header>
+
+    <section id="prodetails" class="section-p1">
+        <div class="single-pro-image">
+            <img src="" width="100%" id="MainImg" style="border-radius: 20px;">
+        </div>
+        <div class="single-pro-details">
+            <h1 id="pro-name">Loading...</h1>
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h2 id="pro-price"></h2>
+            <select id="select">
+                <option>Select Size</option>
+                <option>XS</option>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+                <option>XXL</option>
+            </select>
+            <input type="number" value="1" id="pro-quantity">
+            <button class="normal" id="add-to-cart-btn">Add to Bag</button>
+            <h4>Product Details</h4>
+            <span id="pro-desc" style="line-height: 25px;">
+            </span>
+        </div>
+    </section>
+
+    <section id="product1" class="section-p1">
+        <div id="Collection">
+            <h2>You May Also Like</h2>
+        </div>
+        <div class="shop-section" id="related-products">
+            <!-- Rendered by JS -->
+        </div>
+    </section>
+
+    <footer>
+        <div class="foot-panel1" class="section-p1 section-m1">
+            <div class="newstext">
+                <h4>Sign Up For Newsletters</h4>
+                <p>Get E-mail updates about our latest collection and <span>special offers</span></p>
+            </div>
+            <div class="form">
+                <input type="text" placeholder="Enter your email address">
+                <button class="normal">Sign Up</button>
+            </div>
+        </div>
+        <div class="foot-panel2">
+            <div class="content" id="para-content">
+                <p id="about">About US</p>
+                <p>Sowears is your go-to online destination for stylish and modest Western attire, catering to the
+                    global fashion needs of women.</p>
+            </div>
+            <ul class="content">
+                <p>Get to Know Us</p>
+                <a>Careers</a>
+                <a>Blog</a>
+                <a>About Sowears</a>
+                <a>Investor Relations</a>
+            </ul>
+        </div>
+        <div class="footpanel4">
+            <div class="copyright">
+                <a>SOWAERS FASHION LLC</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="products.js"></script>
+    <script src="cart-utility.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = parseInt(urlParams.get('id'));
+
+        async function loadProduct() {
+            const product = await fetchProductById(productId);
+
+            if (product) {
+                document.getElementById('MainImg').src = product.image;
+                document.getElementById('pro-name').innerText = product.name;
+                document.getElementById('pro-price').innerText = product.price;
+                document.getElementById('pro-desc').innerText = product.description;
+                document.title = product.name + " | Sowears";
+
+                // Render related products (excluding current one, take 4)
+                const allProducts = await fetchProducts();
+                const related = allProducts.filter(p => p.id !== productId).slice(0, 4);
+                renderProducts('related-products', related);
+            } else {
+                document.getElementById('prodetails').innerHTML = "<h2>Product not found. <a href='shop.html'>Return to Shop</a></h2>";
+                document.getElementById('prodetails').style.textAlign = "center";
+                document.getElementById('prodetails').style.padding = "50px";
+            }
+        }
+
+        loadProduct();
+
+        document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+            const quantity = document.getElementById('pro-quantity').value;
+            const size = document.getElementById('select').value;
+            if (size === 'Select Size') {
+                alert('Please select a size');
+                return;
+            }
+            addToCart(productId, quantity, size);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,303 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>shop | Western Clothing Brand For Women | Sowears</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-  
+
     <link rel="stylesheet" href="style2.css">
 </head>
+
 <body>
-    
+
     <header>
-    <section id="header">
-        <a href="#"><img src="sowearslogo.png" alt="" id="logo"></a>
-        <div id="nav_items">
-            <ul id="navbar">
-              <li><a href="index1.html">Home</a></li>
-              <li><a class="active" href="shop.html">Shop</a></li>
-              <li><a href="blog.html">Blog</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="contact.html">Contact</a></li>
-              <li><a class="icon" href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
-            </ul>
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3>Menu</h3>
+                <i class="fa-solid fa-xmark sidebar-close" id="sidebar-close"></i>
+            </div>
+            <div class="sidebar-content">
+                <ul>
+                    <li><a href="index1.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a href="shop.html"><i class="fa-solid fa-bag-shopping"></i> Shop</a></li>
+                    <li><a href="blog.html"><i class="fa-solid fa-pen-nib"></i> Blog</a></li>
+                    <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                    <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                    <li><a href="#" onclick="alert('Coming Soon!')"><i class="fa-solid fa-gift"></i> Gift Cards</a></li>
+                </ul>
+            </div>
         </div>
+        <div class="overlay" id="overlay"></div>
 
-    </section>
-    <div class="panel">
-        <div class="panel-all border">
-            <i class="fa-solid fa-bars"></i>
-            All
-        </div>
-        <div class="panel-ops">
-            <p class="border">Today's Deals</p>
-            <p class="border">Customer Service</p>
-            <p class="border">Registry</p>
-            <p class="border">Gift Cards</p>
-            <p class="border">Sell</p>
-        </div>
-        <div class="panel-deals border">
-            Shop deals in Dresses
-        </div>
-    </div>
-     </header>
-     <section  id="product1" class="section-p1">
-        <div id="Collection">
-            <h1>Featured Products</h1>
-        </div>
-        <div class="shop-section" >   
-           <div class="box1 box" onclick="window.location.href='sproduct1.html';">
-            <div class="box-content">
-                <div class="box-image" style="background-image: url('white\ frock.webp');"></div>
-                 <h5>Cashmere Floral Dress</h5>
-                <div class="star">
-                 <i class="fas fa-star"></i>
-                 <i class="fas fa-star"></i>
-                 <i class="fas fa-star"></i>
-                 <i class="fas fa-star"></i>
-                </div> 
-                <h4>PKR 6,950.00</h4>
-                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
-           </div> 
-         </div>
-         <div class="box2 box" onclick="window.location.href='sproduct2.html';">
-            <div class="box-content">
-            <div class="box-image" style="background-image: url('lightpurple.png');"></div>
-            <h5>Lavender Affair Long Dress</h5>
-            <div class="star">
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
+        <section id="header">
+            <a href="#"><img src="sowearslogo.png" alt="" id="logo"></a>
+            <div id="nav_items">
+                <ul id="navbar">
+                    <li><a href="index1.html">Home</a></li>
+                    <li><a class="active" href="shop.html">Shop</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li id="lg-bag"><a href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span
+                                class="cart-count"></span></a></li>
+                    <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+                </ul>
             </div>
-            <h4>PKR 5,950.00</h4>
-            <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a> 
+            <div id="mobile">
+                <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count"></span></a>
+                <i id="bar" class="fas fa-outdent"></i>
             </div>
-         </div>
-         <div class="box3 box" onclick="window.location.href='sproduct3.html';">
-            <div class="box-content">
-            <div class="box-image" style="background-image: url('skin.webp');"></div>
-            <h5>Enchancing Cutwork Dress</h5>
-            <div class="star">
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
+        </section>
+        <div class="panel">
+            <div class="panel-all border">
+                <i class="fa-solid fa-bars"></i>
+                All
             </div>
-            
-            <h4>PKR 9,950.00</h4>
-            <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
-           
+            <div class="panel-ops">
+                <p class="border"><a href="shop.html" style="text-decoration: none; color: white;">Today's Deals</a></p>
+                <p class="border"><a href="contact.html" style="text-decoration: none; color: white;">Customer
+                        Service</a></p>
+                <p class="border"><a href="#" onclick="event.preventDefault(); alert('Feature Coming Soon!');"
+                        style="text-decoration: none; color: white;">Registry</a></p>
+                <p class="border"><a href="#" onclick="event.preventDefault(); alert('Feature Coming Soon!');"
+                        style="text-decoration: none; color: white;">Gift Cards</a></p>
+                <p class="border"><a href="contact.html" style="text-decoration: none; color: white;">Sell</a></p>
             </div>
-         </div>
-         <div class="box4 box" onclick="window.location.href='sproduct4.html';">
-            <div class="box-content">
-            <div class="box-image" style="background-image: url('longdarkprurple.webp');"></div>
-            <h5>Zora Cutwork Purple Dress</h5>
-                <div class="star">
-                 <i class="fas fa-star"></i>
-                 <i class="fas fa-star"></i>
-                 <i class="fas fa-star"></i>
-                 <i class="fas fa-star"></i>
-                </div>
-                <h4>PKR 9,950.00</h4>
-                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a> 
-            </div></div>
-            <div class="box5 box" onclick="window.location.href='sproduct5.html';">
-                <div class="box-content">
-                <div class="box-image" style="background-image: url('pink3.webp');"></div>
-                <h5>Victoria - Peach Floral Maxi</h5>
-                <div class="star">
-                 <i class="fas fa-star"></i>
-                 <i class="fas fa-star"></i>
-                 <i class="fas fa-star"></i>
-                 <i class="fas fa-star"></i>
-                </div>
-                <h4>PKR 6,950.00</h4>
-                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a> 
-                </div>
-                </div>
-                <div class="box6 box" onclick="window.location.href='sproduct6.html';">
-                    <div class="box-content">
-                    <div class="box-image" style="background-image: url('maroon.jpeg');"></div>
-                    <h5>Milaska Brown Long Dress</h5>
-                <div class="star">
-                 <i class="fas fa-star"></i>
-                 <i class="fas fa-star"></i>
-                 <i class="fas fa-star"></i>
-                 <i class="fas fa-star"></i>
-                </div>
-                <h4>PKR 6,950.00</h4>
-                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a> 
-                    </div>
-                </div>
-                <div class="box7 box" onclick="window.location.href='sproduct7.html';">
-                    <div class="box-content">
-                    <div class="box-image" style="background-image: url('diara3.jpeg');"></div>
-                    <h5>Diara Lace Co Ord Set</h5>
-                    <div class="star">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                </div>
-                <h4>PKR 7,950.00</h4>
-                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a> 
-                    </div>
-                </div>
-                <div class="box8 box" onclick="window.location.href='sproduct8.html';">
-                    <div class="box-content">
-                    <div class="box-image" style="background-image: url('lea1.jpeg');"></div>
-                    <h5>Leia Cut Work Shir</h5>
-                    <div class="star">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <h4>PKR 4,950.00</h4>
-                    <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a> 
-                    </div>
-                </div>
+            <div class="panel-deals border">
+                Shop deals in Dresses
+            </div>
+        </div>
+        <section id="marquee" class="section-m2">
+            <marquee style="color: #565353;" bgcolor="#fff" loop="-1" scrollamount="5" width="100%" class="marquee">Your
+                Dress Obsession Starts Here! . Your Dress Obsession Starts Here! . Your Dress Obsession Starts Here! .
+                Your Dress Obsession Starts Here! . Your Dress Obsession Starts Here! .</marquee>
+        </section>
 
-
-            <div class="box5 box" onclick="window.location.href='sproduct9.html';">
-                <div class="box-content">
-                <div class="box-image" style="background-image: url('may1.webp');"></div>
-                <h5>Mayday - Black Floral Dress</h5>
-                <div class="star">
-                 <i class="fas fa-star"></i>
-                 <i class="fas fa-star"></i>
-                 <i class="fas fa-star"></i>
-                 <i class="fas fa-star"></i>
-                </div>
-                <h4>PKR 6,950.00</h4>
-                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a> 
-                </div>
-                </div>
-                <div class="box6 box" onclick="window.location.href='sproduct10.html';">
-                    <div class="box-content">
-                    <div class="box-image" style="background-image: url('floralpink.webp');"></div>
-                    <h5>Calla Floral Lace Dress</h5>
-                <div class="star">
-                 <i class="fas fa-star"></i>
-                 <i class="fas fa-star"></i>
-                 <i class="fas fa-star"></i>
-                 <i class="fas fa-star"></i>
-                </div>
-                <h4>PKR 9,950.00</h4>
-                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a> 
-                    </div>
-                </div>
-                <div class="box7 box" onclick="window.location.href='sproduct11.html';">
-                    <div class="box-content">
-                    <div class="box-image" style="background-image: url('mullbery.jpeg');"></div>
-                    <h5>Mulberry Dress And Embellished Upper</h5>
-                    <div class="star">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                </div>
-                <h4>PKR 12,950.00</h4>
-                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a> 
-                    </div>
-                </div>
-                <div class="box8 box" onclick="window.location.href='sproduct.html';">
-                    <div class="box-content">
-                    <div class="box-image" style="background-image: url('pastel.webp');"></div>
-                    <h5>Mintora Pastel Green Co Ord Set</h5>
-                    <div class="star">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <h4>PKR 6,950.00</h4>
-                    <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a> 
-                    </div>
-                </div>
-                    <div class="box9 box" onclick="window.location.href='sproduct12.html';">
-                        <div class="box-content">
-                        <div class="box-image" style="background-image: url('blue.jpg');"></div>
-                        <h5>Victoria Dress In Black</h5>
-                        <div class="star">
-                          <i class="fas fa-star"></i>
-                          <i class="fas fa-star"></i>
-                          <i class="fas fa-star"></i>
-                          <i class="fas fa-star"></i>
-                        </div>
-                        <h4>PKR 6,950.00</h4>
-                        <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a> 
-                        </div>
-                        </div>
-                        <div class="box10 box" onclick="window.location.href='sproduct13.html';">
-                            <div class="box-content">
-                            <div class="box-image" style="background-image: url('cord1.jpeg');"></div>
-                            <h5>Inky Floral Co Ord Set</h5>
-                            <div class="star">
-                             <i class="fas fa-star"></i>
-                             <i class="fas fa-star"></i>
-                             <i class="fas fa-star"></i>
-                             <i class="fas fa-star"></i>
-                            </div>
-                            <h4>PKR 6,950.00</h4>
-                            <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a> 
-                            </div>
-                        </div>
-                        <div class="box11 box" onclick="window.location.href='sproduct14.html';">
-                            <div class="box-content">
-                            <div class="box-image" style="background-image: url('green3.jpeg');"></div>
-                            <h5>Midori Ruffle Green Long Dress</h5>
-                            <div class="star">
-                             <i class="fas fa-star"></i>
-                             <i class="fas fa-star"></i>
-                             <i class="fas fa-star"></i>
-                             <i class="fas fa-star"></i>
-                            </div>
-                            <h4>PKR 7,950.00</h4>
-                            <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a> 
-                            </div>
-                        </div>
-                        <div class="box12 box" onclick="window.location.href='sproduct15.html';">
-                            <div class="box-content">
-                            <div class="box-image" style="background-image: url('plumplet.webp');"></div>
-                            <h5>Plumpet Long Dress</h5>
-                            <div class="star">
-                             <i class="fas fa-star"></i>
-                             <i class="fas fa-star"></i>
-                             <i class="fas fa-star"></i>
-                             <i class="fas fa-star"></i>
-                            </div>
-                            <h4>PKR 6,950.00</h4>
-                            <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a> 
-                            </div>
-                        </div>
-        </div>
-     </section>
-     <section id="pagination" class="section-p1">
-        <a href="#">1</a>
-        <a href="#">2</a>
-        <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
-     </section>
-     <footer>
+        <section id="product1" class="section-p1">
+            <div id="Collection">
+                <h1 style="letter-spacing: 2px;">Featured Products</h1>
+            </div>
+            <div class="shop-section" id="shop-container">
+                <!-- Products rendered by JS -->
+            </div>
+        </section>
+        <section id="pagination" class="section-p1">
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
+        </section>
+    </header>
+    <footer>
         <div class="foot-panel1" class="section-p1 section-m1">
-          <div class="newstext">
-            <h4>Sign Up For Newsletters</h4>
-            <p>Get E-mail updates about our latest collection and <span>special offers</span></p>
-          </div>
-          <div class="form">
-            <input type="text" placeholder="Enter your email address">
-            <button class="normal">Sign Up</button>
-          </div>
+            <div class="newstext">
+                <h4>Sign Up For Newsletters</h4>
+                <p>Get E-mail updates about our latest collection and <span>special offers</span></p>
+            </div>
+            <div class="form">
+                <input type="text" id="shopmail" placeholder="Enter your email address">
+                <button class="normal" id="shopbtn">Sign Up</button>
+            </div>
         </div>
         <div class="foot-panel2">
             <div class="content" id="para-content">
                 <p id="about">About US</p>
-                <p>Sowears is your go-to online destination for stylish and modest Western attire, catering to the global fashion needs of women. Our collection features trendy, summery, and exquisite dresses that are sure to elevate your wardrobe.</p>
+                <p>Sowears is your go-to online destination for stylish and modest Western attire, catering to the
+                    global fashion needs of women. Our collection features trendy, summery, and exquisite dresses that
+                    are sure to elevate your wardrobe.</p>
             </div>
-            
+
             <ul class="content">
                 <p>Get to Know Us</p>
                 <a>Careers</a>
@@ -312,11 +123,11 @@
                 <a>Giga Mall, Islamabad</a>
                 <a>Dolmen Mall, Lahore</a>
                 <a>Fortress Square Mall, Lahore</a>
-                <a>Dolmen Mall, Clifton, Karach</a>
+                <a>Dolmen Mall, Clifton, Karachi</a>
                 <a>Ocean Mall, Clifton, Karachi</a>
-                <a>Square One Mall, Gulshan-e-Iqbal, Karach</a>
+                <a>Square One Mall, Gulshan-e-Iqbal, Karachi</a>
             </ul>
-         
+
             <ul class="content">
                 <p>Let Us Help You</p>
                 <a>Sowears and COVID-19</a>
@@ -343,6 +154,15 @@
                 <a>SOWAERS FASHION LLC | 2901 Wilcrest Dr Ste 434 PMB 1042 Houston, TX 77042, USA</a>
             </div>
         </div>
-     </footer>
+    </footer>
+    <script src="products.js"></script>
+    <script src="cart-utility.js"></script>
+    <script src="script.js"></script>
+    <script>
+        fetchProducts().then(products => {
+            renderProducts('shop-container', products);
+        });
+    </script>
 </body>
+
 </html>

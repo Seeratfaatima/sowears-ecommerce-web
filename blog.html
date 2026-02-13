@@ -1,167 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>shop | Western Clothing Brand For Women | Sowears</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-  
+
     <link rel="stylesheet" href="style2.css">
 </head>
-<body>
-    
-    <header>
-    <section id="header">
-        <a href="#"><img src="sowearslogo.png" alt="" id="logo"></a>
-        <div id="nav_items">
-            <ul id="navbar">
-              <li><a href="index1.html">Home</a></li>
-              <li><a href="shop.html">Shop</a></li>
-              <li><a class="active" href="blog.html">Blog</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="contact.html">Contact</a></li>
-              <li><a class="icon" href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
-            </ul>
-        </div>
 
-    </section>
-    <div class="panel">
-        <div class="panel-all border">
-            <i class="fa-solid fa-bars"></i>
-            All
+<body>
+
+    <header>
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3>Menu</h3>
+                <i class="fa-solid fa-xmark sidebar-close" id="sidebar-close"></i>
+            </div>
+            <div class="sidebar-content">
+                <ul>
+                    <li><a href="index1.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a href="shop.html"><i class="fa-solid fa-bag-shopping"></i> Shop</a></li>
+                    <li><a href="blog.html"><i class="fa-solid fa-pen-nib"></i> Blog</a></li>
+                    <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                    <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                    <li><a href="#" onclick="alert('Coming Soon!')"><i class="fa-solid fa-gift"></i> Gift Cards</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="panel-ops">
-            <p class="border">Today's Deals</p>
-            <p class="border">Customer Service</p>
-            <p class="border">Registry</p>
-            <p class="border">Gift Cards</p>
-            <p class="border">Sell</p>
+        <div class="overlay" id="overlay"></div>
+
+        <section id="header">
+            <a href="#"><img src="sowearslogo.png" alt="" id="logo"></a>
+            <div id="nav_items">
+                <ul id="navbar">
+                    <li><a href="index1.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a class="active" href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li id="lg-bag"><a href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span
+                                class="cart-count"></span></a></li>
+                </ul>
+            </div>
+        </section>
+        <div class="panel">
+            <div class="panel-all border">
+                <i class="fa-solid fa-bars"></i>
+                All
+            </div>
+            <div class="panel-ops">
+                <p class="border"><a href="shop.html" style="text-decoration: none; color: white;">Today's Deals</a></p>
+                <p class="border"><a href="contact.html" style="text-decoration: none; color: white;">Customer
+                        Service</a></p>
+                <p class="border"><a href="#" onclick="event.preventDefault(); alert('Feature Coming Soon!');"
+                        style="text-decoration: none; color: white;">Registry</a></p>
+                <p class="border"><a href="#" onclick="event.preventDefault(); alert('Feature Coming Soon!');"
+                        style="text-decoration: none; color: white;">Gift Cards</a></p>
+                <p class="border"><a href="contact.html" style="text-decoration: none; color: white;">Sell</a></p>
+            </div>
+            <div class="panel-deals border">
+                Shop deals in Dresses
+            </div>
         </div>
-        <div class="panel-deals border">
-            Shop deals in Dresses
-        </div>
-    </div>
-    <section id="page_header">
-       <div id="page_msg">
-        <h2>#readmore</h2>
-        <p>Read all case studies about our products!</p>
-       </div>
-    </section>
-     </header>
-     <section id="blog">
-      <div class="blog-box">
-        <div class="blog-img">
-            <img src="blog1.jpeg" alt="" srcset="">
-        </div>
-        <div class="blog-details">
-            <h4>Best Long Dress Styles for Summer 2025</h4>
-            <p>As summer 2024 approaches, fashion enthusiasts are eagerly anticipating the latest trends that will define the season. This year, the emphasis is o...</p>
-            <a href="">Read more</a>
-        </div>
-      </div>
-      <div class="blog-box">
-        <div class="blog-img">
-            <img src="blogimg2.jpeg" alt="" srcset="">
-        </div>
-        <div class="blog-details">
-            <h4>Best Long Dresses for Wedding Guests</h4>
-            <p>Choosing the right dress for a wedding is a task that carries significant importance. Not only is it a special occasion where you want to look your...</p>
-            <a href="">Read more</a>
-        </div>
-      </div>
-      <div class="blog-box">
-        <div class="blog-img">
-            <img src="blog3.jpeg" alt="" srcset="">
-        </div>
-        <div class="blog-details">
-            <h4>How to Style Your Cotton Dress for Any Occasion?</h4>
-            <p>Cotton dresses are a beloved staple in many wardrobes, celebrated for their unparalleled comfort, breathability, and versatility. Whether you're dr...</p>
-            <a href="">Read more</a>
-        </div>
-      </div>
-      <div class="blog-box">
-        <div class="blog-img">
-            <img src="blog5.jpeg" alt="" srcset="">
-        </div>
-        <div class="blog-details">
-            <h4>9 Reasons Why Maxi Dresses Are the Best Thing Ever</h4>
-            <p>Maxi dresses, with their flowing hems and endless styles, have captured the hearts of fashion lovers for years. But what is it about these long dre...</p>
-            <a href="">Read more</a>
-        </div>
-      </div>
-      <div class="blog-box">
-        <div class="blog-img">
-            <img src="blog6.jpeg" alt="" srcset="">
-        </div>
-        <div class="blog-details">
-            <h4>The Best Maxi Dresses For Spring/Summer 2025</h4>
-            <p>Maxi dresses, characterized by their long, flowing silhouettes that typically reach the ankles, have become a staple in many women's wardrobes. Ren...</p>
-            <a href="">Read more</a>
-        </div>
-      </div>
-      <div class="blog-box">
-        <div class="blog-img">
-            <img src="blog7.jpeg" alt="" srcset="">
-        </div>
-        <div class="blog-details">
-            <h4>The Best Flowy Long Dresses for Summer</h4>
-            <p>As the sun's warmth envelops us during the blissful days of summer, our wardrobe choices take on a new significance. One such timeless and delightf...</p>
-            <a href="">Read more</a>
-        </div>
-      </div>
-      <div class="blog-box">
-        <div class="blog-img">
-            <img src="blog8.jpeg" alt="" srcset="">
-        </div>
-        <div class="blog-details">
-            <h4>Co-Ord Sets for Women: 7 Must-Have Outfits for a Trendy Look</h4>
-            <p>In the ever-evolving world of fashion, certain trends emerge and captivate the hearts of style enthusiasts. Among these trends, co-ord sets have ta...</p>
-            <a href="">Read more</a>
-        </div>
-      </div>
-      <div class="blog-box">
-        <div class="blog-img">
-            <img src="blog9.jpeg" alt="" srcset="">
-        </div>
-        <div class="blog-details">
-            <h4>The 5 Summer Dresses Every Woman Should Own</h4>
-            <p>Let's talk about summer dresses, those delightful pieces of clothing that become our best friends when the sun is shining and the days are long. Th...</p>
-            <a href="">Read more</a>
-        </div>
-      </div>
-      <div class="blog-box">
-        <div class="blog-img">
-            <img src="blog10.jpeg" alt="" srcset="">
-        </div>
-        <div class="blog-details">
-            <h4>Summer Party Dresses: 10 Stunning Partying Outfits</h4>
-            <p>Welcome to the vibrant world of summer party dresses, where each outfit narrates a tale of exuberance, style, and jubilation. The radiant sun and e...</p>
-            <a href="">Read more</a>
-        </div>
-      </div>
-     </section>
-     <section id="pagination" class="section-p1">
-        <a href="#">1</a>
-        <a href="#">2</a>
-        <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
-     </section>
-     <footer>
+        <section id="page_header">
+            <div id="page_msg">
+                <h2>#readmore</h2>
+                <p>Read all case studies about our products!</p>
+            </div>
+        </section>
+
+
+        <section id="blog" class="section-p1">
+            <div id="Collection1">
+                <h2 style="letter-spacing: 2px;">Fashion</h2>
+            </div>
+            <div class="shop-section">
+                <div class="blog-box">
+                    <div class="blog-img">
+                        <img src="blog1.jpeg" alt="" srcset="">
+                    </div>
+                    <div class="blog-details">
+                        <h4>Best Long Dress Styles for Summer 2025</h4>
+                        <p>As summer 2024 approaches, fashion enthusiasts are eagerly anticipating the latest trends
+                            that will define the season. This year, the emphasis is o...</p>
+                        <a href="blog1.html">Read more</a>
+                    </div>
+                </div>
+                <div class="blog-box">
+                    <div class="blog-img">
+                        <img src="blogimg2.jpeg" alt="" srcset="">
+                    </div>
+                    <div class="blog-details">
+                        <h4>Best Long Dresses for Wedding Guests</h4>
+                        <p>Choosing the right dress for a wedding is a task that carries significant importance. Not
+                            only is it a special occasion where you want to look your...</p>
+                        <a href="blog2.html">Read more</a>
+                    </div>
+                </div>
+                <div class="blog-box">
+                    <div class="blog-img">
+                        <img src="blog3.jpeg" alt="" srcset="">
+                    </div>
+                    <div class="blog-details">
+                        <h4>How to Style Your Cotton Dress for Any Occasion?</h4>
+                        <p>Cotton dresses are a beloved staple in many wardrobes, celebrated for their unparalleled
+                            comfort, breathability, and versatility. Whether you're dr...</p>
+                        <a href="blog3.html">Read more</a>
+                    </div>
+                </div>
+                <div class="blog-box">
+                    <div class="blog-img">
+                        <img src="blog5.jpeg" alt="" srcset="">
+                    </div>
+                    <div class="blog-details">
+                        <h4>9 Reasons Why Maxi Dresses Are the Best Thing Ever</h4>
+                        <p>Maxi dresses, with their flowing hems and endless styles, have captured the hearts of fashion
+                            lovers for years. But what is it about these long dre...</p>
+                        <a href="blog5.html">Read more</a>
+                    </div>
+                </div>
+                <div class="blog-box">
+                    <div class="blog-img">
+                        <img src="blog6.jpeg" alt="" srcset="">
+                    </div>
+                    <div class="blog-details">
+                        <h4>The Best Maxi Dresses For Spring/Summer 2025</h4>
+                        <p>Maxi dresses, characterized by their long, flowing silhouettes that typically reach the
+                            ankles, have become a staple in many women's wardrobes. Ren...</p>
+                        <a href="blog6.html">Read more</a>
+                    </div>
+                </div>
+                <div class="blog-box">
+                    <div class="blog-img">
+                        <img src="blog7.jpeg" alt="" srcset="">
+                    </div>
+                    <div class="blog-details">
+                        <h4>The Best Flowy Long Dresses for Summer</h4>
+                        <p>As the sun's warmth envelops us during the blissful days of summer, our wardrobe choices take
+                            on a new significance. One such timeless and delightf...</p>
+                        <a href="blog7.html">Read more</a>
+                    </div>
+                </div>
+                <div class="blog-box">
+                    <div class="blog-img">
+                        <img src="blog8.jpeg" alt="" srcset="">
+                    </div>
+                    <div class="blog-details">
+                        <h4>Co-Ord Sets for Women: 7 Must-Have Outfits for a Trendy Look</h4>
+                        <p>In the ever-evolving world of fashion, certain trends emerge and captivate the hearts of
+                            style enthusiasts. Among these trends, co-ord sets have ta...</p>
+                        <a href="blog8.html">Read more</a>
+                    </div>
+                </div>
+                <div class="blog-box">
+                    <div class="blog-img">
+                        <img src="blog9.jpeg" alt="" srcset="">
+                    </div>
+                    <div class="blog-details">
+                        <h4>The 5 Summer Dresses Every Woman Should Own</h4>
+                        <p>Let's talk about summer dresses, those delightful pieces of clothing that become our best
+                            friends when the sun is shining and the days are long. Th...</p>
+                        <a href="blog9.html">Read more</a>
+                    </div>
+                </div>
+                <div class="blog-box">
+                    <div class="blog-img">
+                        <img src="blog10.jpeg" alt="" srcset="">
+                    </div>
+                    <div class="blog-details">
+                        <h4>Summer Party Dresses: 10 Stunning Partying Outfits</h4>
+                        <p>Welcome to the vibrant world of summer party dresses, where each outfit narrates a tale of
+                            exuberance, style, and jubilation. The radiant sun and e...</p>
+                        <a href="blog10.html">Read more</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="pagination" class="section-p1">
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
+        </section>
+    </header>
+    <footer>
         <div class="foot-panel1" class="section-p1 section-m1">
-          <div class="newstext">
-            <h4>Sign Up For Newsletters</h4>
-            <p>Get E-mail updates about our latest collection and <span>special offers</span></p>
-          </div>
-          <div class="form">
-            <input type="text" placeholder="Enter your email address">
-            <button class="normal">Sign Up</button>
-          </div>
+            <div class="newstext">
+                <h4>Sign Up For Newsletters</h4>
+                <p>Get E-mail updates about our latest collection and <span>special offers</span></p>
+            </div>
+            <div class="form">
+                <input type="text" id="blogmail" placeholder="Enter your email address">
+                <button class="normal" id="blogbtn">Sign Up</button>
+            </div>
         </div>
         <div class="foot-panel2">
             <div class="content" id="para-content">
                 <p id="about">About US</p>
-                <p>Sowears is your go-to online destination for stylish and modest Western attire, catering to the global fashion needs of women. Our collection features trendy, summery, and exquisite dresses that are sure to elevate your wardrobe.</p>
+                <p>Sowears is your go-to online destination for stylish and modest Western attire, catering to the
+                    global fashion needs of women. Our collection features trendy, summery, and exquisite dresses that
+                    are sure to elevate your wardrobe.</p>
             </div>
-            
+
             <ul class="content">
                 <p>Get to Know Us</p>
                 <a>Careers</a>
@@ -176,11 +218,11 @@
                 <a>Giga Mall, Islamabad</a>
                 <a>Dolmen Mall, Lahore</a>
                 <a>Fortress Square Mall, Lahore</a>
-                <a>Dolmen Mall, Clifton, Karach</a>
+                <a>Dolmen Mall, Clifton, Karachi</a>
                 <a>Ocean Mall, Clifton, Karachi</a>
-                <a>Square One Mall, Gulshan-e-Iqbal, Karach</a>
+                <a>Square One Mall, Gulshan-e-Iqbal, Karachi</a>
             </ul>
-         
+
             <ul class="content">
                 <p>Let Us Help You</p>
                 <a>Sowears and COVID-19</a>
@@ -207,6 +249,10 @@
                 <a>SOWAERS FASHION LLC | 2901 Wilcrest Dr Ste 434 PMB 1042 Houston, TX 77042, USA</a>
             </div>
         </div>
-     </footer>
+    </footer>
+    <script src="cart-utility.js"></script>
+    <script src="blog.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

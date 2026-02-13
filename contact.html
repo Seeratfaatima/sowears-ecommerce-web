@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shop | Western Clothing Brand For Women | Sowears</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+    <link rel="stylesheet" href="style2.css">
+    <script>
+        function formValidation() {
+            valid = true;
+            if (document.form.name.value == "") {
+                alert("Please Enter Your Name!");
+                valid = false;
+
+            }
+            else if (document.form.email.value == "") {
+                alert("Please Enter Your Email!");
+                valid = false;
+            }
+            else if (document.form.contact.value == "") {
+                alert("Please Enter Contact Number!");
+                valid = false;
+            }
+        }
+        let uname, pass, email;
+        async function submitContactForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email2').value;
+            const phone = document.getElementById('contact').value;
+            const message = document.getElementById('message-text').value;
+
+            if (!name || !email || !message) {
+                alert("Please fill in all required fields!");
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/messages', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, phone, message })
+                });
+
+                if (response.ok) {
+                    alert("Thank you! Your message has been sent to our team.");
+                    document.getElementById('contact-form').reset();
+                } else {
+                    alert("Failed to send message. Please try again.");
+                }
+            } catch (err) {
+                alert("Connection error. Please check your internet.");
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('submit-msg-btn');
+            if (btn) btn.onclick = submitContactForm;
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3>Menu</h3>
+                <i class="fa-solid fa-xmark sidebar-close" id="sidebar-close"></i>
+            </div>
+            <div class="sidebar-content">
+                <ul>
+                    <li><a href="index1.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a href="shop.html"><i class="fa-solid fa-bag-shopping"></i> Shop</a></li>
+                    <li><a href="blog.html"><i class="fa-solid fa-pen-nib"></i> Blog</a></li>
+                    <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                    <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                    <li><a href="#" onclick="alert('Coming Soon!')"><i class="fa-solid fa-gift"></i> Gift Cards</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="overlay" id="overlay"></div>
+
+        <section id="header">
+            <a href="#"><img src="sowearslogo.png" alt="" id="logo"></a>
+            <div id="nav_items">
+                <ul id="navbar">
+                    <li><a href="index1.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a class="active" href="contact.html">Contact</a></li>
+                    <li id="lg-bag"><a href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span
+                                class="cart-count"></span></a></li>
+                </ul>
+            </div>
+        </section>
+        <div class="panel">
+            <div class="panel-all border">
+                <i class="fa-solid fa-bars"></i>
+                All
+            </div>
+            <div class="panel-ops">
+                <p class="border"><a href="shop.html" style="text-decoration: none; color: white;">Today's Deals</a></p>
+                <p class="border"><a href="contact.html" style="text-decoration: none; color: white;">Customer
+                        Service</a></p>
+                <p class="border"><a href="#" onclick="event.preventDefault(); alert('Feature Coming Soon!');"
+                        style="text-decoration: none; color: white;">Registry</a></p>
+                <p class="border"><a href="#" onclick="event.preventDefault(); alert('Feature Coming Soon!');"
+                        style="text-decoration: none; color: white;">Gift Cards</a></p>
+                <p class="border"><a href="contact.html" style="text-decoration: none; color: white;">Sell</a></p>
+            </div>
+            <div class="panel-deals border">
+                Shop deals in Dresses
+            </div>
+        </div>
+        <section id="page_map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3296.255668407903!2d74.35832784231329!3d31.53263401429454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3919057e8f731a57%3A0xeb9f48acef8d34f9!2sSowears%20(Fortress%20Square%20Mall%2C%20Lahore)!5e0!3m2!1sen!2s!4v1747116224344!5m2!1sen!2s"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+        <section id="contact-details">
+            <div class="details">
+                <h2>DROP US A LINE</h2>
+                <form action="" id="contact-form" name="form" onclick="formValidation();">
+                    <label for="name">Your Name(required)</label><br>
+                    <input type="text" name="name" id="name"><br>
+                    <label for="email">Your Email(required)</label><br>
+                    <input type="email" name="email" id="email2"><br>
+                    <label for="contact">Your Phone Number</label><br>
+                    <input type="number" name="contact" id="contact"><br>
+                    <label for="textarea">Your Message</label><br>
+                    <textarea name="text" id="message-text"></textarea>
+                    <input type="button" id="submit-msg-btn" value="Send">
+                </form>
+            </div>
+            <div class="address">
+                <h2>CONTACT INFORMATION</h2>
+                <p><span>We love to hear from you on our customer service, merchandise, website or any topics you want
+                        to share with us. Your comments and suggestions will be appreciated. Please complete the form
+                        below.</span></p>
+                <div>
+                    <li>
+                        <i class="fa-solid fa-house" style="color: #8b0404;"></i>
+                        <p>Lower Ground (LG), Shop, 11 Fortress Square Mall, Saddar Town, Lahore, 54000, Pakistan</p>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone" style="color: #8b0404;"></i>
+                        <p>04237341261</p>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope" style="color: #8b0404;"></i>
+                        <p>sowearsonline@sowearsmills.com</p>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-clock" style="color: #8b0404;"></i>
+                        <p>Everyday 9:00 AM to 10:00 PM</p>
+                    </li>
+                </div>
+            </div>
+        </section>
+    </header>
+    <footer>
+        <div class="foot-panel1" class="section-p1 section-m1">
+            <div class="newstext">
+                <h4>Sign Up For Newsletters</h4>
+                <p>Get E-mail updates about our latest collection and <span>special offers</span></p>
+            </div>
+            <div class="form">
+                <input type="text" id="contactmail" placeholder="Enter your email address">
+                <button class="normal" id="contactbtn">Sign Up</button>
+            </div>
+        </div>
+        <div class="foot-panel2">
+            <div class="content" id="para-content">
+                <p id="about">About US</p>
+                <p>Sowears is your go-to online destination for stylish and modest Western attire, catering to the
+                    global fashion needs of women. Our collection features trendy, summery, and exquisite dresses that
+                    are sure to elevate your wardrobe.</p>
+            </div>
+
+            <ul class="content">
+                <p>Get to Know Us</p>
+                <a>Careers</a>
+                <a>Blog</a>
+                <a>About Sowears</a>
+                <a>Investor Relations</a>
+            </ul>
+            <ul class="content">
+                <p>Sowears Outlet & Flagship Store:</p>
+                <a>Mega Mall, Sharjah, UAE</a>
+                <a>Lucky One Mall, Karachi</a>
+                <a>Giga Mall, Islamabad</a>
+                <a>Dolmen Mall, Lahore</a>
+                <a>Fortress Square Mall, Lahore</a>
+                <a>Dolmen Mall, Clifton, Karachi</a>
+                <a>Ocean Mall, Clifton, Karachi</a>
+                <a>Square One Mall, Gulshan-e-Iqbal, Karachi</a>
+            </ul>
+            <ul class="content">
+                <p>Let Us Help You</p>
+                <a>Sowears and COVID-19</a>
+                <a>Your Account</a>
+                <a>Your Orders</a>
+                <a>Shipping Rates & Policies</a>
+                <a>Returns & Replacements</a>
+                <a>Manage Your Content and Devices</a>
+                <a>Help</a>
+            </ul>
+        </div>
+        <div class="footpanel3">
+            <div class="logo">
+            </div>
+        </div>
+        <div class="footpanel4">
+            <div class="pages">
+                <a>Conditions of Use </a>
+                <a>Privacy Notice </a>
+                <a>Your Ads Privacy Choices</a>
+            </div>
+            <div class="copyright">
+                <a>SOWAERS FASHION LLC | 2901 Wilcrest Dr Ste 434 PMB 1042 Houston, TX 77042, USA</a>
+            </div>
+        </div>
+    </footer>
+    <script src="cart-utility.js"></script>
+    <script src="contact.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

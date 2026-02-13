@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shop | Western Clothing Brand For Women | Sowears</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+
+    <header>
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3>Menu</h3>
+                <i class="fa-solid fa-xmark sidebar-close" id="sidebar-close"></i>
+            </div>
+            <div class="sidebar-content">
+                <ul>
+                    <li><a href="index1.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a href="shop.html"><i class="fa-solid fa-bag-shopping"></i> Shop</a></li>
+                    <li><a href="blog.html"><i class="fa-solid fa-pen-nib"></i> Blog</a></li>
+                    <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                    <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                    <li><a href="#" onclick="alert('Coming Soon!')"><i class="fa-solid fa-gift"></i> Gift Cards</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="overlay" id="overlay"></div>
+
+        <section id="header">
+            <a href="#"><img src="sowearslogo.png" alt="" id="logo"></a>
+            <div id="nav_items">
+                <ul id="navbar">
+                    <li><a href="index1.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li id="lg-bag"><a class="active" href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span
+                                class="cart-count"></span></a>
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+        <div class="panel">
+            <div class="panel-all border">
+                <i class="fa-solid fa-bars"></i>
+                All
+            </div>
+            <div class="panel-ops">
+                <p class="border"><a href="shop.html" style="text-decoration: none; color: white;">Today's Deals</a></p>
+                <p class="border"><a href="contact.html" style="text-decoration: none; color: white;">Customer
+                        Service</a></p>
+                <p class="border"><a href="#" onclick="event.preventDefault(); alert('Feature Coming Soon!');"
+                        style="text-decoration: none; color: white;">Registry</a></p>
+                <p class="border"><a href="#" onclick="event.preventDefault(); alert('Feature Coming Soon!');"
+                        style="text-decoration: none; color: white;">Gift Cards</a></p>
+                <p class="border"><a href="contact.html" style="text-decoration: none; color: white;">Sell</a></p>
+            </div>
+            <div class="panel-deals border">
+                Shop deals in Dresses
+            </div>
+        </div>
+        <section id="page_header1">
+        </section>
+        <section id="cart" class="section-p1">
+            <table width="100%">
+                <thead>
+                    <tr>
+                        <th>REMOVE</th>
+                        <th>IMAGE</th>
+                        <th>PRODUCT</th>
+                        <th>PRICE</th>
+                        <th>QUANTITY</th>
+                        <th>SUBTOTAL</th>
+                    </tr>
+                </thead>
+
+                <tbody id="cart-items">
+                    <!-- Items will be loaded by cart.js -->
+                </tbody>
+            </table>
+        </section>
+        <section id="cart-add" class="section-p1">
+            <div id="coupon">
+                <h3>Apply Coupon</h3>
+                <div>
+                    <input type="text" id="code" placeholder="Enter your coupon">
+                    <button class="normal" id="applycode">Apply</button>
+                </div>
+            </div>
+            <div id="subtotal">
+                <h3>Cart Totals</h3>
+                <table>
+                    <tr>
+                        <td>Cart Subtotal</td>
+                        <td id="subtotal-val">PKR 0.00</td>
+                    </tr>
+                    <tr>
+                        <td>Shipping</td>
+                        <td>Free</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td><strong id="total-val">PKR 0.00</strong></td>
+                    </tr>
+                </table>
+                <button class="normal" id="checkout-btn">Proceed to checkout</button>
+            </div>
+        </section>
+        <footer>
+            <div class="foot-panel2">
+                <div class="content" id="para-content">
+                    <p id="about">About US</p>
+                    <p>Sowears is your go-to online destination for stylish and modest Western attire, catering to the
+                        global fashion needs of women. Our collection features trendy, summery, and exquisite dresses
+                        that are sure to elevate your wardrobe.</p>
+                </div>
+
+                <ul class="content">
+                    <p>Get to Know Us</p>
+                    <a>Careers</a>
+                    <a>Blog</a>
+                    <a>About Sowears</a>
+                    <a>Investor Relations</a>
+                </ul>
+                <ul class="content">
+                    <p>Sowears Outlet & Flagship Store:</p>
+                    <a>Mega Mall, Sharjah, UAE</a>
+                    <a>Lucky One Mall, Karachi</a>
+                    <a>Giga Mall, Islamabad</a>
+                    <a>Dolmen Mall, Lahore</a>
+                    <a>Fortress Square Mall, Lahore</a>
+                    <a>Dolmen Mall, Clifton, Karachi</a>
+                    <a>Ocean Mall, Clifton, Karachi</a>
+                    <a>Square One Mall, Gulshan-e-Iqbal, Karachi</a>
+                </ul>
+
+                <ul class="content">
+                    <p>Let Us Help You</p>
+                    <a>Sowears and COVID-19</a>
+                    <a>Your Account</a>
+                    <a>Your Orders</a>
+                    <a>Shipping Rates & Policies</a>
+                    <a>Returns & Replacements</a>
+                    <a>Manage Your Content and Devices</a>
+                    <a>Help</a>
+                </ul>
+            </div>
+            <div class="footpanel3">
+                <div class="logo">
+
+                </div>
+            </div>
+            <div class="footpanel4">
+                <div class="pages">
+                    <a>Conditions of Use </a>
+                    <a>Privacy Notice </a>
+                    <a>Your Ads Privacy Choices</a>
+                </div>
+                <div class="copyright">
+                    <a>SOWAERS FASHION LLC | 2901 Wilcrest Dr Ste 434 PMB 1042 Houston, TX 77042, USA</a>
+                </div>
+            </div>
+        </footer>
+        <script src="cart-utility.js"></script>
+        <script src="cart.js"></script>
+        <script src="script.js"></script>
+</body>
+
+</html>

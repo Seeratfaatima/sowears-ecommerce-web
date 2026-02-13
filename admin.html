@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Manage Products | Sowears</title>
+    <link rel="stylesheet" href="style2.css">
+    <style>
+        .admin-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .admin-form,
+        .admin-list {
+            padding: 30px;
+            border: 1px solid #e1e1e1;
+            border-radius: 10px;
+            background: #fff;
+        }
+
+        .admin-form h2,
+        .admin-list h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .admin-form button {
+            width: 100%;
+            padding: 12px;
+            background: #8b0404;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .btn-cancel {
+            background: #666 !important;
+            display: none;
+        }
+
+        /* List styles */
+        .product-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .product-item:last-child {
+            border-bottom: none;
+        }
+
+        .product-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .product-info img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-edit {
+            color: #007bff;
+            cursor: pointer;
+        }
+
+        .btn-delete {
+            color: #dc3545;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <section id="header">
+            <a href="index1.html"><img src="sowearslogo.png" alt="" id="logo"></a>
+            <div id="nav_items">
+                <ul id="navbar">
+                    <li><a href="index1.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a class="active" href="admin.html">Products</a></li>
+                    <li><a href="admin-orders.html">Orders</a></li>
+                    <li><a href="admin-messages.html">Messages</a></li>
+                    <li><a href="admin-subscribers.html">Subscribers</a></li>
+                </ul>
+            </div>
+        </section>
+    </header>
+
+    <div class="admin-container">
+        <!-- Form Section -->
+        <div class="admin-form">
+            <h2 id="formTitle">Add New Product</h2>
+            <form id="productForm">
+                <input type="hidden" id="productId">
+                <div class="form-group">
+                    <label for="name">Product Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="image">Product Image</label>
+                    <input type="file" id="imageFile" accept="image/*">
+                    <small id="currentImagePath"></small>
+                    <input type="hidden" id="image" name="image">
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="text" id="price" name="price" required>
+                </div>
+                <div class="form-group">
+                    <label for="rating">Rating (1-5)</label>
+                    <input type="number" id="rating" name="rating" min="1" max="5" value="4">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>
+                </div>
+                <button type="submit" id="submitBtn">Save Product</button>
+                <button type="button" id="cancelBtn" class="btn-cancel">Cancel Edit</button>
+            </form>
+        </div>
+
+        <!-- List Section -->
+        <div class="admin-list">
+            <h2>Current Products</h2>
+            <div id="productList">
+                <!-- Products will be loaded here -->
+                Loading...
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const productForm = document.getElementById('productForm');
+        const productList = document.getElementById('productList');
+        const submitBtn = document.getElementById('submitBtn');
+        const cancelBtn = document.getElementById('cancelBtn');
+        const formTitle = document.getElementById('formTitle');
+        const productIdInput = document.getElementById('productId');
+
+        let isEditing = false;
+
+        // Fetch and display products
+        async function loadProducts() {
+            try {
+                const response = await fetch('/api/products');
+                const products = await response.json();
+
+                productList.innerHTML = products.map(p => `
+                    <div class="product-item">
+                        <div class="product-info">
+                            <img src="${p.image}" alt="">
+                            <span>${p.name}</span>
+                        </div>
+                        <div class="product-actions">
+                            <span class="btn-edit" onclick="editProduct(${p.id})">Edit</span>
+                            <span class="btn-delete" onclick="deleteProduct(${p.id})">Delete</span>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (err) {
+                productList.innerHTML = "Error loading products.";
+            }
+        }
+
+        // Handle Add or Update
+        productForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData();
+            formData.append('name', document.getElementById('name').value);
+            formData.append('price', document.getElementById('price').value);
+            formData.append('rating', document.getElementById('rating').value);
+            formData.append('description', document.getElementById('description').value);
+
+            // Add the file if selected
+            const fileInput = document.getElementById('imageFile');
+            if (fileInput.files[0]) {
+                formData.append('image', fileInput.files[0]);
+            } else {
+                // If no new file, send the old path
+                formData.append('image', document.getElementById('image').value);
+            }
+
+            const url = isEditing ? `/api/products/${productIdInput.value}` : '/api/products';
+            const method = isEditing ? 'PUT' : 'POST';
+
+            try {
+                const response = await fetch(url, {
+                    method: method,
+                    body: formData // No Content-Type header needed for FormData
+                });
+
+                if (response.ok) {
+                    alert(isEditing ? 'Product updated!' : 'Product added!');
+                    resetForm();
+                    loadProducts();
+                } else {
+                    const text = await response.text();
+                    try {
+                        const error = JSON.parse(text);
+                        alert('Error: ' + error.message);
+                    } catch (e) {
+                        alert('Server Error: ' + text);
+                    }
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Connection Error: ' + err.message);
+            }
+        });
+
+        // Set form to Edit mode
+        async function editProduct(id) {
+            try {
+                const response = await fetch(`/api/products/${id}`);
+                const p = await response.json();
+
+                productIdInput.value = p.id;
+                document.getElementById('name').value = p.name;
+                document.getElementById('image').value = p.image; // Keep path for update if no new file
+                document.getElementById('currentImagePath').innerText = "Current image: " + p.image;
+                document.getElementById('price').value = p.price;
+                document.getElementById('rating').value = p.rating;
+                document.getElementById('description').value = p.description;
+
+                isEditing = true;
+                formTitle.innerText = "Edit Product";
+                submitBtn.innerText = "Update Product";
+                cancelBtn.style.display = "block";
+                window.scrollTo(0, 0);
+            } catch (err) {
+                alert('Error fetching product details.');
+            }
+        }
+
+        // Delete product
+        async function deleteProduct(id) {
+            if (!confirm('Are you sure you want to delete this product?')) return;
+
+            try {
+                const response = await fetch(`/api/products/${id}`, { method: 'DELETE' });
+                if (response.ok) {
+                    alert('Product deleted!');
+                    loadProducts();
+                }
+            } catch (err) {
+                alert('Error deleting product.');
+            }
+        }
+
+        function resetForm() {
+            productForm.reset();
+            isEditing = false;
+            productIdInput.value = "";
+            document.getElementById('currentImagePath').innerText = "";
+            formTitle.innerText = "Add New Product";
+            submitBtn.innerText = "Save Product";
+            cancelBtn.style.display = "none";
+        }
+
+        cancelBtn.addEventListener('click', resetForm);
+
+        // Initial load
+        loadProducts();
+    </script>
+</body>
+
+</html>
